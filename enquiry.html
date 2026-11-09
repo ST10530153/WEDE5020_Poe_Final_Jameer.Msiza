@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enquiry | Product, bulk, trade-in or repair | Nexus Tech</title>
+  <meta name="description" content="Enquire about products, bulk quotes, trade-ins or repairs at Nexus Tech. Validated form with a clear response based on your request.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="topbar">
+    <span>Product questions · bulk quotes · trade-ins · repair bookings</span>
+    <span>We reply during store hours</span>
+  </div>
+  <header class="site-header">
+    <a class="logo" href="index.html">NEXUS <span>TECH</span></a>
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Open menu">
+    <label class="nav-toggle-label" for="nav-toggle">Menu</label>
+    <nav class="main-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="repairs.html">Repairs</a>
+      <a href="enquiry.html">Enquiry</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main id="main">
+    <h1 class="section-title">Enquiry form</h1>
+    <p class="lede">Tell us what you need. After validation you will see a response about pricing, availability or next steps.</p>
+    <form id="enquiry-form">
+      <label for="name">Full name</label>
+      <input id="name" name="name" type="text" required>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required>
+      <label for="phone">Cellphone</label>
+      <input id="phone" name="phone" type="tel" placeholder="0820000000" required>
+      <label for="type">What do you need?</label>
+      <select id="type" name="type" required>
+        <option value="">Select an option</option>
+        <option value="product">Product enquiry</option>
+        <option value="bulk">Bulk / business quote</option>
+        <option value="tradein">Trade-in</option>
+        <option value="repair">Repair booking</option>
+      </select>
+      <label for="store">Preferred store</label>
+      <select id="store" name="store" required>
+        <option value="">Select a store</option>
+        <option value="Sandton">Sandton</option>
+        <option value="Midrand">Midrand</option>
+      </select>
+      <label for="message">Details</label>
+      <textarea id="message" name="message" rows="5" required placeholder="Model name, fault, or quantity"></textarea>
+      <button class="btn" type="submit">Send enquiry</button>
+    </form>
+    <div id="enquiry-response" class="response" hidden></div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div><strong>Nexus Tech</strong></div>
+      <div><a href="contact.html">Prefer to call or visit?</a></div>
+      <div><a href="products.html">Browse products first</a></div>
+      <div>Today is <span data-live-date></span></div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/forms.js"></script>
+</body>
+</html>

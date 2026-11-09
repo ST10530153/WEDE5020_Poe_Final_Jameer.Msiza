@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Sandton and Midrand stores | Nexus Tech</title>
+  <meta name="description" content="Visit or contact Nexus Tech in Sandton and Midrand. Maps, hours and a contact form that opens your email client.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="topbar">
+    <span>Two stores · one workshop standard</span>
+    <span>Mon–Fri 09:00–18:00 · Sat 09:00–14:00</span>
+  </div>
+  <header class="site-header">
+    <a class="logo" href="index.html">NEXUS <span>TECH</span></a>
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Open menu">
+    <label class="nav-toggle-label" for="nav-toggle">Menu</label>
+    <nav class="main-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="repairs.html">Repairs</a>
+      <a href="enquiry.html">Enquiry</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main id="main">
+    <h1 class="section-title">Contact Nexus Tech</h1>
+    <p class="lede">Both branches share stock reports and the same warranty rules.</p>
+    <div class="two-col">
+      <section class="panel">
+        <h2>Sandton flagship</h2>
+        <p>Shop U24, Nelson Mandela Square<br>Sandton, Johannesburg, 2196</p>
+        <p>Tel: 011 883 2140<br>Email: sandton@nexustech.co.za</p>
+        <p>Best for: full laptop wall, same-day high-volume repairs, business collections.</p>
+        <iframe title="Map of Nelson Mandela Square, Sandton" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=28.041,26.104,28.061,26.114&layer=mapnik"></iframe>
+      </section>
+      <section class="panel">
+        <h2>Midrand branch</h2>
+        <p>Unit 6, Waterfall View<br>Magwa Crescent, Midrand, 1685</p>
+        <p>Tel: 011 312 4471<br>Email: midrand@nexustech.co.za</p>
+        <p>Best for: N1 corridor collections, student laptops, battery and screen drop-offs.</p>
+        <iframe title="Map of Midrand Waterfall area" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=28.100,25.990,28.130,26.015&layer=mapnik"></iframe>
+      </section>
+    </div>
+    <h2>Contact form</h2>
+    <p>After validation, your email client will open with the message ready to send.</p>
+    <form id="contact-form">
+      <label for="cname">Full name</label>
+      <input id="cname" name="name" type="text" required>
+      <label for="cemail">Email</label>
+      <input id="cemail" name="email" type="email" required>
+      <label for="cstore">Which store should reply?</label>
+      <select id="cstore" name="store" required>
+        <option value="">Select</option>
+        <option value="sandton">Sandton</option>
+        <option value="midrand">Midrand</option>
+      </select>
+      <label for="cmsg">Message</label>
+      <textarea id="cmsg" name="message" rows="5" required></textarea>
+      <button class="btn" type="submit">Send message</button>
+    </form>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div><strong>Nexus Tech</strong></div>
+      <div>sandton@nexustech.co.za</div>
+      <div>midrand@nexustech.co.za</div>
+      <div>Today is <span data-live-date></span></div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/forms.js"></script>
+</body>
+</html>

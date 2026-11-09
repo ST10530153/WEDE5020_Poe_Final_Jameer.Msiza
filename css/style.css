@@ -1,0 +1,534 @@
+/* ==========================================================================
+   Nexus Tech — css/style.css
+   WEDE5020 Part 2: desktop visual design + responsive layout
+   Palette from the approved proposal: navy, electric blue, ice grey.
+   Cascade: reset → tokens → base → components → pages → breakpoints.
+   ========================================================================== */
+
+/* 2.2 CSS reset — keeps margins, lists and images consistent across browsers */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%; /* 16px root so rem scales with user settings */
+  scroll-behavior: smooth;
+}
+
+body,
+h1, h2, h3, p, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+ul { list-style: none; }
+
+main ul { list-style: disc; padding-left: 1.2rem; margin-bottom: 0.9rem; }
+main li { margin-bottom: 0.35rem; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* Design tokens — one place for colour and type so later rules inherit */
+:root {
+  --navy: #0b1f3a;
+  --navy-deep: #071526;
+  --blue: #1f6feb;
+  --blue-dark: #1557c0;
+  --slate: #334155;
+  --muted: #5b6b80;
+  --ice: #f1f5f9;
+  --white: #ffffff;
+  --amber: #d97706;
+  --line: #d5deea;
+  --ok: #15803d;
+  --shadow: 0 0.6rem 1.4rem rgba(11, 31, 58, 0.08);
+  --radius: 0.6rem;
+  --space: 1.25rem;
+  --max: 72rem;
+  --font: "IBM Plex Sans", Arial, Helvetica, sans-serif;
+}
+
+/* 2.2 Base style */
+body {
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--slate);
+  background: var(--white);
+  min-height: 100vh;
+}
+
+/* 2.3 Typography scale (modular, rem-based) */
+h1 {
+  font-size: 2.4rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+h2 {
+  font-size: 1.6rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  line-height: 1.3;
+  font-weight: 650;
+  color: var(--navy);
+}
+
+p { margin-bottom: 0.85rem; }
+
+a {
+  color: var(--blue);
+  text-decoration-thickness: 0.08em;
+}
+
+a:hover { color: var(--blue-dark); }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 0.18rem solid var(--blue);
+  outline-offset: 0.15rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  background: var(--blue);
+  color: var(--white);
+  padding: 0.4rem 0.7rem;
+  z-index: 20;
+}
+
+.skip-link:focus { top: 0.5rem; }
+
+/* Header and navigation — flex on desktop */
+.topbar {
+  background: var(--navy-deep);
+  color: #dbe7f5;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  padding: 0.45rem var(--space);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.site-header {
+  background: var(--white);
+  border-bottom: 0.2rem solid var(--navy);
+  padding: 0.85rem var(--space);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  color: var(--navy);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+}
+
+.logo span { color: var(--blue); }
+
+.nav-toggle,
+.nav-toggle-label { display: none; }
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.main-nav a {
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 0.35rem;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  background: var(--ice);
+  color: var(--blue);
+}
+
+.main-nav a[aria-current="page"] {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* Hero — grid on desktop */
+.hero {
+  background: linear-gradient(120deg, var(--navy) 0%, #12325c 60%, #1f6feb 140%);
+  color: var(--white);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 3.2rem var(--space);
+}
+
+.hero-copy { max-width: 38rem; margin: 0 auto 0 0; }
+.hero h1 { color: var(--white); margin-bottom: 0.8rem; }
+.hero p { color: #e6eef8; font-size: 1.08rem; }
+.hero img, .hero picture img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  object-fit: cover;
+  max-height: 22rem;
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.4rem; }
+
+.btn {
+  display: inline-block;
+  background: var(--blue);
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.7rem 1.15rem;
+  border-radius: 0.35rem;
+  font-weight: 700;
+  border: 0.12rem solid var(--blue);
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus-visible { background: var(--blue-dark); border-color: var(--blue-dark); color: var(--white); }
+.btn:active { transform: translateY(1px); }
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.btn-ghost:hover { background: var(--white); color: var(--navy); }
+
+/* Page content */
+main {
+  width: min(100% - 2.5rem, var(--max));
+  margin: 0 auto;
+  padding: 2.4rem 0 3.2rem;
+}
+
+.section-title { margin-bottom: 0.6rem; }
+.lede { font-size: 1.05rem; color: var(--muted); max-width: 44rem; }
+
+/* 2.4 Card grid */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.15rem;
+  margin-top: 1.2rem;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover { border-color: #b9c8dc; transform: translateY(-2px); }
+
+.card img { width: 100%; height: 11rem; object-fit: cover; }
+.card .body { padding: 0.95rem 1rem 1.15rem; }
+.card h3 { margin-bottom: 0.35rem; }
+.price { font-weight: 700; color: var(--navy); font-size: 1.1rem; margin-bottom: 0.2rem; }
+.stock { color: var(--ok); font-size: 0.88rem; font-weight: 600; }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.6rem;
+  align-items: start;
+  margin-bottom: 1.6rem;
+}
+
+.two-col img { border-radius: var(--radius); width: 100%; object-fit: cover; max-height: 22rem; }
+
+.panel {
+  background: var(--ice);
+  border-radius: var(--radius);
+  padding: 1.15rem 1.2rem 1.3rem;
+  border: 1px solid var(--line);
+}
+
+.panel iframe { width: 100%; height: 14rem; border: 0; border-radius: 0.4rem; margin-top: 0.6rem; }
+
+table.specs {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.6rem 0 1.6rem;
+}
+
+table.specs th,
+table.specs td {
+  border: 1px solid var(--line);
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+}
+
+table.specs th {
+  width: 32%;
+  background: var(--ice);
+  color: var(--navy);
+}
+
+.team .cards { grid-template-columns: repeat(4, 1fr); }
+.team .card { box-shadow: none; }
+.team .card:hover { transform: none; }
+
+/* Forms */
+form label {
+  display: block;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0.75rem 0 0.3rem;
+  font-size: 0.95rem;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  max-width: 36rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  background: var(--white);
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus { border-color: var(--blue); }
+
+form button { margin-top: 1rem; }
+
+.note {
+  background: #fff7ed;
+  border-left: 0.25rem solid var(--amber);
+  padding: 0.7rem 0.9rem;
+  margin: 1rem 0 1.4rem;
+  max-width: 42rem;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--navy);
+  color: #dbe7f5;
+  padding: 1.8rem var(--space);
+  font-size: 0.92rem;
+}
+
+.footer-grid {
+  width: min(100%, var(--max));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.site-footer a { color: var(--white); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer strong { color: var(--white); }
+
+/* 3. Responsive design
+   Breakpoints: tablet ≤ 900px, mobile ≤ 640px
+   Desktop is the default (mobile-enhanced, desktop-first for the brief). */
+
+@media (max-width: 56.25rem) {
+  h1 { font-size: 2rem; }
+  .hero { grid-template-columns: 1fr; padding: 2.2rem var(--space); }
+  .cards,
+  .team .cards { grid-template-columns: repeat(2, 1fr); }
+  .two-col { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 40rem) {
+  h1 { font-size: 1.7rem; }
+  h2 { font-size: 1.35rem; }
+
+  .topbar { font-size: 0.78rem; }
+
+  /* Navigation collapses to a checkbox-driven menu (CSS only) */
+  .nav-toggle-label {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.45rem 0.75rem;
+    border-radius: 0.35rem;
+    cursor: pointer;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.4rem 0.6rem 0.8rem;
+    box-shadow: var(--shadow);
+  }
+
+  .nav-toggle:checked ~ .main-nav { display: flex; }
+  .main-nav a { margin: 0.15rem 0; }
+
+  .cards,
+  .team .cards,
+  .footer-grid { grid-template-columns: 1fr; }
+
+  .actions { flex-direction: column; }
+  .btn { text-align: center; }
+  main { width: min(100% - 1.6rem, var(--max)); }
+}
+
+/* ==========================================================================
+   Part 3 — Interactive elements, forms, lightbox, accordion
+   ========================================================================== */
+
+/* Product search and filters */
+.product-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.product-controls input {
+  flex: 1 1 16rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line);
+  background: var(--white);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 21, 38, 0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: var(--radius);
+}
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+.lightbox-trigger { cursor: zoom-in; }
+
+/* Accordion */
+.accordion-item {
+  border-bottom: 1px solid var(--line);
+}
+.accordion-btn {
+  width: 100%;
+  text-align: left;
+  padding: 1rem 0;
+  background: none;
+  border: none;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+.accordion-btn::after { content: "+"; font-size: 1.2rem; }
+.accordion-item.open .accordion-btn::after { content: "–"; }
+.accordion-content {
+  display: none;
+  padding-bottom: 1rem;
+  color: var(--slate);
+}
+.accordion-item.open .accordion-content { display: block; }
+
+/* Form errors and responses */
+.field-error {
+  display: block;
+  color: #b91c1c;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: #b91c1c;
+}
+.response {
+  background: var(--ice);
+  border-left: 4px solid var(--ok);
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: var(--radius);
+}
+
+/* Live date */
+[data-live-date] { font-weight: 600; }

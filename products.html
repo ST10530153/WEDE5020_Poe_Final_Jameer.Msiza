@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Laptops, phones and audio | Nexus Tech Sandton</title>
+  <meta name="description" content="Browse laptops, smartphones and audio at Nexus Tech. Search and filter the catalogue. Collect in Sandton or Midrand.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="topbar">
+    <span>Prices in South African rand · VAT included</span>
+    <span>Collect today if marked in stock</span>
+  </div>
+  <header class="site-header">
+    <a class="logo" href="index.html">NEXUS <span>TECH</span></a>
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Open menu">
+    <label class="nav-toggle-label" for="nav-toggle">Menu</label>
+    <nav class="main-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="repairs.html">Repairs</a>
+      <a href="enquiry.html">Enquiry</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main id="main">
+    <h1 class="section-title">Products</h1>
+    <p class="lede">Search or filter the catalogue. Click any image to open a larger view. Prices include VAT.</p>
+
+    <div class="product-controls">
+      <input type="search" id="product-search" placeholder="Search products…" aria-label="Search products">
+      <button type="button" class="filter-btn active" data-filter="all">All</button>
+      <button type="button" class="filter-btn" data-filter="laptops">Laptops</button>
+      <button type="button" class="filter-btn" data-filter="phones">Phones</button>
+      <button type="button" class="filter-btn" data-filter="audio">Audio</button>
+    </div>
+
+    <div id="product-grid" class="cards"></div>
+
+    <p>Need a spec that is not listed, a student price, or five devices for an office? Use the <a href="enquiry.html">enquiry form</a>.</p>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div><strong>Nexus Tech</strong></div>
+      <div><a href="enquiry.html">Product enquiry</a></div>
+      <div><a href="contact.html">Store stock desk</a></div>
+      <div>Today is <span data-live-date></span></div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/lightbox.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Tech | Laptops, phones and repairs in Sandton</title>
+  <meta name="description" content="Independent electronics store in Sandton and Midrand. Shop devices, compare specs, and book a repair.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- External stylesheet shared by every page (Part 2) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="topbar">
+    <span>Free collection at Sandton and Midrand · Free delivery over R1 500</span>
+    <span>Workshop open Mon–Sat</span>
+  </div>
+  <header class="site-header">
+    <a class="logo" href="index.html">NEXUS <span>TECH</span></a>
+    <!-- Checkbox menu is styled in CSS so the nav collapses on small screens -->
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Open menu">
+    <label class="nav-toggle-label" for="nav-toggle">Menu</label>
+    <nav class="main-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="repairs.html">Repairs</a>
+      <a href="enquiry.html">Enquiry</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>The right device. A bench that can fix it.</h1>
+      <p>Nexus Tech is an independent electronics store in Johannesburg. Buy a laptop or phone with clear specifications, then collect in Sandton or Midrand — or book the repair desk if the screen is already cracked.</p>
+      <div class="actions">
+        <a class="btn" href="products.html">Shop devices</a>
+        <a class="btn btn-ghost" href="repairs.html">Book a repair</a>
+      </div>
+    </div>
+    <!-- picture + srcset so smaller screens load a lighter file -->
+    <picture>
+      <source media="(max-width: 40rem)" srcset="images/laptop-hero-480.jpg">
+      <img src="images/laptop-hero-800.jpg"
+           srcset="images/laptop-hero-480.jpg 480w, images/laptop-hero-800.jpg 800w, images/laptop-hero-1200.jpg 1200w"
+           sizes="(max-width: 56rem) 100vw, 40vw"
+           alt="Open laptop on a desk, representing the Nexus Tech laptop range">
+    </picture>
+  </section>
+
+  <main id="main">
+    <h2 class="section-title">Shop by category</h2>
+    <p class="lede">Four ways in: a laptop for work, a phone on the floor today, audio that matches the device, or the workshop if something is already broken.</p>
+    <div class="cards">
+      <article class="card">
+        <img src="images/laptop-desk-800.jpg" srcset="images/laptop-desk-480.jpg 480w, images/laptop-desk-800.jpg 800w" sizes="(max-width: 40rem) 100vw, 25vw" alt="Laptop on a wooden desk">
+        <div class="body">
+          <h3>Laptops</h3>
+          <p>Work, study and creator notebooks with RAM, storage and screen size listed up front.</p>
+          <a href="products.html#laptops">View laptops</a>
+        </div>
+      </article>
+      <article class="card">
+        <img src="images/smartphone-800.jpg" srcset="images/smartphone-480.jpg 480w, images/smartphone-800.jpg 800w" sizes="(max-width: 40rem) 100vw, 25vw" alt="Smartphone held in a hand">
+        <div class="body">
+          <h3>Smartphones</h3>
+          <p>Current Android and iPhone-class models, with Sandton floor stock marked clearly.</p>
+          <a href="products.html#phones">View phones</a>
+        </div>
+      </article>
+      <article class="card">
+        <img src="images/headphones-800.jpg" srcset="images/headphones-480.jpg 480w, images/headphones-800.jpg 800w" sizes="(max-width: 40rem) 100vw, 25vw" alt="Over-ear headphones">
+        <div class="body">
+          <h3>Audio and gaming</h3>
+          <p>Headphones, earbuds and controllers chosen to work with the devices we sell.</p>
+          <a href="products.html#audio">View accessories</a>
+        </div>
+      </article>
+      <article class="card">
+        <img src="images/repair-bench-800.jpg" srcset="images/repair-bench-480.jpg 480w, images/repair-bench-800.jpg 800w" sizes="(max-width: 40rem) 100vw, 25vw" alt="Electronics repair bench with tools">
+        <div class="body">
+          <h3>Repairs</h3>
+          <p>Screens, batteries and software. Book a slot instead of waiting in the queue.</p>
+          <a href="repairs.html">Book now</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <strong>Nexus Tech</strong>
+        <p>Independent electronics. Sandton and Midrand.</p>
+      </div>
+      <div>
+        <p><a href="about.html">About</a><br><a href="products.html">Products</a><br><a href="repairs.html">Repairs</a></p>
+      </div>
+      <div>
+        <p><a href="enquiry.html">Enquiry</a><br><a href="contact.html">Contact</a></p>
+      </div>
+      <div>
+        <p>Today is <span data-live-date></span></p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
